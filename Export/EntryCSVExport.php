@@ -1,5 +1,5 @@
 <?php
- function csvExport_Entries($servername)
+ function csvExport_Entries()
  {
       header('Content-Type: text/csv; charset=utf-8');  
       header('Content-Disposition: attachment; filename=entries.csv');  
