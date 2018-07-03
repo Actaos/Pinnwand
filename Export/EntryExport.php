@@ -1,6 +1,10 @@
 <?php
 function get_Entries($skip,$top)
 {
+    if($skip==null|| $top==null)
+    {
+        return"parameter can not be null";
+    }
     try {
         $conn = new PDO("mysql:host=localhost;dbname=pinwanddb",root);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
