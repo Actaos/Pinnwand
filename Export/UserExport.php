@@ -1,6 +1,10 @@
 <?php
 function get_User($username,$password)
 {
+    if($username==null||$password==null)
+    {
+       return "parameter can not be null"; 
+    }
     try {
         $conn = new PDO("mysql:host=localhost;dbname=pinwanddb",root);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
