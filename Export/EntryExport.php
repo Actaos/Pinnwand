@@ -1,10 +1,10 @@
 <?php
 // habs noch nicht auspropiert kam noch nicht dazu Test daten zu erstellen^^
 //@Georg:   skip ist wert ab dem eintraege genommen werden Top ist anzahl werte die genommen werden sollen
-function get_Entries($servername,$username,$password,$skip,$top)
+function get_Entries($username,$password,$skip,$top)
 {
     try {
-        $conn = new PDO("mysql:host=$servername;dbname=pinwanddb", $username, $password);
+        $conn = new PDO("mysql:host=localhost;dbname=pinwanddb", $username, $password);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $sql="SELECT `e_id`, `e_titel`, `e_text`, `b_vorame`,`b_nachname` FROM `eintraege`,`benutzer` WHERE eintraege.b_id==benutzer.b_id
         ORDER BY `e_id` 
