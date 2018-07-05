@@ -1,26 +1,23 @@
 <?php
-function get_User($username,$password)
+function get_User($username , $passwort)
 {
-    if($username==null||$password==null)
+    if($username==null||$passwort==null)
     {
        return "parameter can not be null"; 
     }
     try {
-        $conn = new PDO("mysql:host=localhost;dbname=pinwanddb",root);
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql="SELECT `b_vorname`, `b_nachname`FROM`benutzer`WHERE b_password==".$password."AND b_username==".$username.";";
-        $result=$conn->exec($sql);
-       
-        if ($result->num_rows > 0) {
-                return (object)[
-                    'b_vorname'=>$row["b_vorname"],
-                    'b_nachname'=>$row["b_nachname"]
-                ];
-            
-          } else {
-//reagieren auf string
-            return "0 results";
-         }
+        $db = new PDO("mysql:host=localhost;dbname=pinnwanddb","root","");
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $query="SELECT `b_Vorname`, `b_Nachname`FROM `benutzer` WHERE(  `b_benutzername` = '".$username."' AND `b_password` = '".$passwort."' );";
+        $sth=$db->query($query);
+       while($row=$sth->fetch(PDO::FETCH_ASSOC));
+        {
+                    $object=(object)[
+                        'b_Vorname'=>$row->b_Vorname,
+                        'b_Nachname'=>$row->b_Nachname,
+                    ];
+            return $row->b_Vorname;
+        }
         }
     catch(PDOException $e)
         {
