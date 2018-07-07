@@ -8,21 +8,22 @@ function get_Entries($skip,$top)
     try {
         $conn = new PDO("mysql:host=localhost;dbname=pinnwanddb","root","");
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql="SELECT `e_id`, `e_titel`, `e_text`, `b_vorame`,`b_nachname` FROM `eintraege`,`benutzer` WHERE `eintraege.b_id` = `benutzer.b_id`
-        ORDER BY `e_id` 
+        $sql="SELECT `e_ID`, `e_Titel`, `e_Text`, `b_Vorname`,`b_Nachname` FROM `eintraege`,`benutzer` WHERE eintraege.b_Id = benutzer.b_Id
+        ORDER BY e_ID
         Limit ".$top." OFFSET ".$skip." ; ";
-
-        $entryList=array();
+        
+        $entryList[]=array();
+        $counter=-1;
          foreach($conn->query($sql) as $row)
          {
-             $object=(object)[
-                    'id'=>$row['e_id'],
-                    'titel'=>$row['e_titel'],
-                    'text'=>$row['e_text'],
+             $counter=$counter+1;
+             array_push($entryList,$counter=array(
+                   'id'=>$row['e_ID'],
+                   'titel'=>$row['e_Titel'],
+                    'text'=>$row['e_Text'],
                     'vorname'=>$row['b_Vorname'],
                     'nachname'=>$row['b_Nachname'],
-                ];
-                $entryList->array_push($object);
+                ));
          }
             return $entryList;
         }
