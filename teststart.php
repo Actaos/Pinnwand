@@ -43,10 +43,10 @@
 
 
 //Entry Export Test
-//require "Export/EntryExport.php";
-//$skip=1;
-//$top=1;
-//$result= array();
-//$result=get_Entries($skip , $top);
-//print_r($result);
+require "Export/EntryExport.php";
+$skip=0;
+$top=2;
+$result= array();
+$result=get_Entries($skip , $top);
+print_r($result);
 ?>

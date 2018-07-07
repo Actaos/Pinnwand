@@ -1,9 +1,9 @@
 <?php
 function get_Entries($skip,$top)
 {
-    if($skip==null|| $top==null)
+    if( $top==null)
     {
-        return"parameter can not be null";
+        return"top can not be null";
     }
     try {
         $conn = new PDO("mysql:host=localhost;dbname=pinnwanddb","root","");
@@ -13,10 +13,9 @@ function get_Entries($skip,$top)
         Limit ".$top." OFFSET ".$skip." ; ";
         
         $entryList[]=array();
-        $counter=-1;
+        $counter=0;
          foreach($conn->query($sql) as $row)
          {
-             $counter=$counter+1;
              array_push($entryList,$counter=array(
                    'id'=>$row['e_ID'],
                    'titel'=>$row['e_Titel'],
