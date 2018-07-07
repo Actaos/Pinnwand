@@ -5,15 +5,14 @@
       header('Content-Disposition: attachment; filename=entries.csv');  
       $output = fopen("php://output", "w");  
       fputcsv($output, array('id','Titel', 'Text', 'Autor','Autor'));  
-       $conn = new PDO("mysql:host=localhost;dbname=pinwanddb",root);
+       $conn = new PDO("mysql:host=localhost;dbname=pinnwanddb","root","");
        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-       $sql = "SELECT e_id,e_titel,e_text,b_vorname,b_nachname from eintraege,benutzer WHERE benuter.b_id==eintraege.b_id";  
-       $result=$conn->exec($sql);
-       if ($result->num_rows > 0) {
-       while($row = mysqli_fetch_assoc($result))  
-       {  
+       $sql = "SELECT `e_Titel`,`e_Text`, `b_Vorname`,`b_Nachname` FROM `eintraege`, benutzer WHERE eintraege.b_Id = benutzer.b_Id ;";  
+      foreach($conn->query($sql) as $row)
+       { 
            fputcsv($output, $row);  
        }  
        fclose($output);  
  }
 ?>
+

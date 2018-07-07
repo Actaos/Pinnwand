@@ -1,12 +1,5 @@
 <?php
-//Entry Export Test
-//require "Export/EntryExport.php";
-//$skip=1;
-//$top=1;
-//$result=array();
-//$result=get_Entries($skip , $top);
-//$first=$result[0];
-//echo "<script>console.log('".$first->titel."')";
+
 //User Export Test
 
 //require "Export/UserExport.php";
@@ -43,4 +36,18 @@
 //$password="12345";
 //$username="BesterKicker";
 //import_User($vorname, $nachname,$password,$username);
+
+//csvExport Test
+require "Export/EntryCSVExport.php";
+csvExport_Entries();
+
+
+//Entry Export Test
+//require "Export/EntryExport.php";
+//$skip=1;
+//$top=1;
+//$result=array();
+//$result=get_Entries($skip , $top);
+//$first=$result[0];
+//echo "<script>console.log('".$first->titel."')";
 ?>
