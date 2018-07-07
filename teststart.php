@@ -35,4 +35,12 @@
 //$text="es funktioniert";
 //$userId=3;
 //import_Entry($titel,$text,$userId);
+
+//User Import Test
+//require "Import/UserImport.php";
+//$vorname="Timo";
+//$nachname="Werner";
+//$password="12345";
+//$username="BesterKicker";
+//import_User($vorname, $nachname,$password,$username);
 ?>
