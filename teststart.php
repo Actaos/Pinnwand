@@ -1,14 +1,21 @@
 <?php
+//Entry Export Test
 
-
+require "Export/EntryExport.php";
+$skip=1;
+$top=1;
+$result=array();
+$result=get_Entries($skip , $top);
+$first=$result[0];
+echo "<script>console.log('".$first->titel."')";
 //User Export Test
 
-require "Export/UserExport.php";
-$username="Popeye";
-$passwort="DerBoss";
-$userExport=get_User($username , $passwort);
-$name=$userExport;
-echo "<script>console.log('".$name."');</script>";
+//require "Export/UserExport.php";
+//$username="Popeye";
+//$passwort="DerBoss";
+//$userExport=get_User($username , $passwort);
+//$name=$userExport;
+//echo "<script>console.log('".$name->Vorname."');</script>";
 
 //Entry Delete Test
 
