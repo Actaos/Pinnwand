@@ -2,7 +2,7 @@
 
 //User Export Test
 
-//require "Export/UserExport.php";
+//require "src/Functions/Export/UserExport.php";
 //$username="Popeye";
 //$passwort="DerBoss";
 //$userExport=get_User($username , $passwort);
@@ -11,26 +11,26 @@
 
 //Entry Delete Test
 
-//require "Delete/EntryDelete.php";
+//require "src/Functions/Delete/EntryDelete.php";
 //$id=2;
 //$entryDeleteResult=delete_Entry($id);
 
 
 //User Delete Test
 
-//require "Delete/UserDelete.php";
+//require "src/Functions/Delete/UserDelete.php";
 //$userId=1;
 //$userDeleteResult=delete_User($userId);
 
 // Entry Import Test
-//require "Import/EntryImport.php";
+//require "src/Functions/Import/EntryImport.php";
 //$titel="test";
 //$text="es funktioniert";
 //$userId=3;
 //import_Entry($titel,$text,$userId);
 
 //User Import Test
-//require "Import/UserImport.php";
+//require "src/Functions/Import/UserImport.php";
 //$vorname="Timo";
 //$nachname="Werner";
 //$password="12345";
@@ -38,12 +38,12 @@
 //import_User($vorname, $nachname,$password,$username);
 
 //csvExport Test
-//require "Export/EntryCSVExport.php";
+//require "src/Functions/Export/EntryCSVExport.php";
 //csvExport_Entries();
 
 
 //Entry Export Test
-//require "Export/EntryExport.php";
+//require "src/Functions/Export/EntryExport.php";
 //$skip=0;
 //$top=2;
 //$result= array();
