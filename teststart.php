@@ -1,13 +1,12 @@
 <?php
 //Entry Export Test
-
-require "Export/EntryExport.php";
-$skip=1;
-$top=1;
-$result=array();
-$result=get_Entries($skip , $top);
-$first=$result[0];
-echo "<script>console.log('".$first->titel."')";
+//require "Export/EntryExport.php";
+//$skip=1;
+//$top=1;
+//$result=array();
+//$result=get_Entries($skip , $top);
+//$first=$result[0];
+//echo "<script>console.log('".$first->titel."')";
 //User Export Test
 
 //require "Export/UserExport.php";
@@ -29,4 +28,11 @@ echo "<script>console.log('".$first->titel."')";
 //require "Delete/UserDelete.php";
 //$userId=1;
 //$userDeleteResult=delete_User($userId);
+
+// Entry Import Test
+//require "Import/EntryImport.php";
+//$titel="test";
+//$text="es funktioniert";
+//$userId=3;
+//import_Entry($titel,$text,$userId);
 ?>
