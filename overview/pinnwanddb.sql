@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 07. Jul 2018 um 18:58
+-- Erstellungszeit: 08. Jul 2018 um 17:54
 -- Server-Version: 10.1.29-MariaDB
 -- PHP-Version: 7.2.0
 
@@ -42,8 +42,7 @@ CREATE TABLE `benutzer` (
 
 INSERT INTO `benutzer` (`b_Id`, `b_Vorname`, `b_Nachname`, `b_benutzername`, `b_password`) VALUES
 (1, 'Till', 'Schmidt', 'Till33', 'password'),
-(2, 'Georg', 'Popp', 'Popeye', 'DerBoss'),
-(3, 'Timo', 'Werner', 'BesterKicker', '12345');
+(2, 'Georg', 'Popp', 'Popeye', 'DerBoss');
 
 -- --------------------------------------------------------
 
@@ -80,7 +79,8 @@ ALTER TABLE `benutzer`
 -- Indizes für die Tabelle `eintraege`
 --
 ALTER TABLE `eintraege`
-  ADD PRIMARY KEY (`e_ID`);
+  ADD PRIMARY KEY (`e_ID`),
+  ADD KEY `b_Id` (`b_Id`);
 
 --
 -- AUTO_INCREMENT für exportierte Tabellen
@@ -90,13 +90,23 @@ ALTER TABLE `eintraege`
 -- AUTO_INCREMENT für Tabelle `benutzer`
 --
 ALTER TABLE `benutzer`
-  MODIFY `b_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `b_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT für Tabelle `eintraege`
 --
 ALTER TABLE `eintraege`
   MODIFY `e_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- Constraints der exportierten Tabellen
+--
+
+--
+-- Constraints der Tabelle `eintraege`
+--
+ALTER TABLE `eintraege`
+  ADD CONSTRAINT `b_Id` FOREIGN KEY (`b_Id`) REFERENCES `benutzer` (`b_Id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
