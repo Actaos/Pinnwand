@@ -32,7 +32,7 @@
     </div>
     <button class="btn btn-lg btn-primary btn-block" type="submit">Einloggen</button>
     <div>
-        <a href="index.php">Login überspringen</a>
+        <a href="./index.html">Login überspringen</a>
     </div>
     <p class="mt-5 mb-3 text-muted">&copy; 2018</p>
 </form>
