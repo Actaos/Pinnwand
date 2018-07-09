@@ -17,9 +17,9 @@
      
      //Definieren und Ausführen eines SQL Befehls
        $sql = "SELECT `e_Titel`,`e_Text`, `b_Vorname`,`b_Nachname` FROM `eintraege`, benutzer WHERE eintraege.b_Id = benutzer.b_Id ;";  
-      foreach($conn->query($sql) as $row)
+     $result=$conn->query($sql)->fetchall(PDO::FETCH_ASSOC);
+      foreach($result as $row)
        { 
-          
           //Schreiben in die Geöffnete CSV DAtei
            fputcsv($output, $row);  
        }  
