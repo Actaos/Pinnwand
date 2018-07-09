@@ -1,6 +1,6 @@
 <?php
     // auskommentieren wenn der Funktionsaufruf gestartet werden soll:
-    // require "src/Functions/Export/EntryCSVExport.php";
+    include "src/Functions/Export/EntryCSVExport.php";
 
     require "src/Functions/Export/EntryExport.php";
     require "src/Functions/Import/EntryImport.php";
@@ -17,6 +17,11 @@
 
     function increaseID ($id) {
         return $id + 1;
+    }
+
+    if(isset($_POST['submit'])) {
+        increaseID();
+        import_Entry($_POST['titel'],$_POST['text'],$id);
     }
 ?>
 
@@ -40,7 +45,7 @@
             <button href="#">UAT</button>
         </li>
         <li>
-            <button href="#">Export</button>
+            <button action="<?php csvExport_Entries() ?>">Export</button>
         </li>
         <li>
             <button href="./login.php">Login</button>
@@ -78,12 +83,6 @@
                 <button type="submit" value="click" name="submit">Add Note</button>
             </div>
         </form>
-        <?php
-            if(isset($_POST['submit'])) {
-                increaseID();
-                import_Entry($_POST['titel'],$_POST['text'],$id);
-            } 
-        ?>
 
     </div>
 
