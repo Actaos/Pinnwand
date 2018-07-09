@@ -26,6 +26,7 @@
      
      //Schließen der CSV Datei
        fclose($output);  
+     exit();
  }
 ?>
 
